@@ -8,6 +8,12 @@
             "email": "r.kipsang@gmail.com"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "RichardKeep\\Validate\\": "src/"
+        }
+    },
     "minimum-stability": "dev",
     "require": {}
 }
