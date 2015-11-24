@@ -1,1 +1,1 @@
-<script type="text/javascript" src="{{ asset('js/richard_keep/app.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/richardkeep/app.js') }}"></script>

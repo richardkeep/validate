@@ -19,7 +19,7 @@ class RichardKeepServiceProvider extends ServiceProvider {
 		});
 
 		$this->publishes([
-			__DIR__.'/views/app.js' => public_path("js/richard_keep/app.js"),
+			__DIR__.'/views/app.js' => public_path("js/richardkeep/app.js"),
 			__DIR__.'/config/richard.php' => base_path("config/richard.php"),
 		]);
 	}

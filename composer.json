@@ -1,5 +1,5 @@
 {
-    "name": "richard_keep/validate",
+    "name": "richardkeep/validate",
     "description": "A simple Laravel 5.1 package to validate form inputs on the go",
     "type": "beta",
     "authors": [
