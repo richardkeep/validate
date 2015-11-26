@@ -53,6 +53,8 @@ Open `config\richard.php` and add the validation rules. For example,
 
 When a user starts typing, for example their email, the data is validated and the error message is displayed below the text box immediately. 
 
+![image1](http://s18.postimg.org/rg6iaabwp/email1.png)
+
 In addition, the submit button is disabled if an error is returned.
 
 Please try it guys. 
