@@ -1,6 +1,4 @@
-<?php
-
-namespace RichardKeep\Validate;
+<?php namespace RichardKeep\Validate;
 
 use Validator;
 use Illuminate\Http\Request;
