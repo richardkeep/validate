@@ -29,3 +29,15 @@ Place this code below the link of jQuery library
 ```php
 @include('richard::validate');
 ```
+
+Open `app\Http\Middleware\VerifyCsrfTokenCheck.php` add `validate to the URI that should be excluded from CSRF check
+```php
+/**
+     * The URIs that should be excluded from CSRF verification.
+     *
+     * @var array
+     */
+    protected $except = [
+        'validate'
+    ];
+```
