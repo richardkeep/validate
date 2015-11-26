@@ -18,4 +18,14 @@ And then, if using Laravel 5, include the service provider within `config/app.ph
 ];
 ```
 
-That is not enough. More details to follow.
+Publish the assets
+
+```js
+$ php artisan vendor:publish
+```
+
+Place this code below the link of jQuery library
+
+```php
+@include('richard::validate');
+```
