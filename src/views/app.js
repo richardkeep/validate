@@ -36,9 +36,6 @@
        });
           
     };
-
-    $('input[type=submit]').attr('disabled', true);
-
     
     $('input[type=text]').attr('onkeyup', function(){
         var field = $(this).attr('id');
