@@ -28,19 +28,19 @@
                 $('small.'+field).css('color','red').html(error);
 
                 if(error == ''){
-                    $('#submitB').attr('disabled', false);
+                    $('input[type=submit]').attr('disabled', false);
                 } else {
-                    $('#submitB').attr('disabled', true);
+                    $('input[type=submit]').attr('disabled', true);
                 }
             },
        });
           
     };
 
-    $('#submitB').attr('disabled', true);
+    $('input[type=submit]').attr('disabled', true);
 
     
-    $('input').attr('onkeyup', function(){
+    $('input[type=text]').attr('onkeyup', function(){
         var field = $(this).attr('id');
         $(this).parent().append("<small class='"+field+"'></small>");
         return "doValidate('"+field+"')";
