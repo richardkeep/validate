@@ -1,6 +1,6 @@
 <?php
 
-Route::post( config('richard.route'), function(Illuminate\Http\Request $request){
+Route::post('validate', function(Illuminate\Http\Request $request){
 
 	$field = preg_replace('/-/', '_', $request->get('field'));
 	
