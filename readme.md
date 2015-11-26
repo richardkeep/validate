@@ -51,10 +51,10 @@ Open `config\richard.php` and add the validation rules. For example,
 ];
 ```
 
-So when a user starts typing, for example their email, the data is validated and receive the error message is displayed below the text box. 
+So when a user starts typing, for example their email, the data is validated and the error message is displayed below the text box. 
 
 In addition, the submit is disabled if an error is returned.
 
 Please try it guys. 
 
-Pull requests are highly welcomed. :dance
+Pull requests are highly welcomed. 
