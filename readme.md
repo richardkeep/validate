@@ -1,4 +1,4 @@
-# Easily Validate Input Fields
+# Easily Validate Form Inputs
 
 ## Installation
 
@@ -21,7 +21,7 @@ And then, if using Laravel 5, include the service provider within `config/app.ph
 Publish the assets
 
 ```js
-$ php artisan vendor:publish
+php artisan vendor:publish
 ```
 
 Place this code below the link of jQuery library
@@ -51,9 +51,9 @@ Open `config\richard.php` and add the validation rules. For example,
 ];
 ```
 
-So when a user starts typing, for example their email, the data is validated and the error message is displayed below the text box. 
+When a user starts typing, for example their email, the data is validated and the error message is displayed below the text box immediately. 
 
-In addition, the submit is disabled if an error is returned.
+In addition, the submit button is disabled if an error is returned.
 
 Please try it guys. 
 
