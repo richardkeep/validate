@@ -55,6 +55,8 @@ When a user starts typing, for example their email, the data is validated and th
 
 ![image1](http://s18.postimg.org/rg6iaabwp/email1.png)
 
+![image2](http://s24.postimg.org/dyfosc1ad/email2.png)
+
 In addition, the submit button is disabled if an error is returned.
 
 Please try it guys. 
