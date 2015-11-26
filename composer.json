@@ -1,11 +1,10 @@
 {
     "name": "richardkeep/validate",
-    "description": "A simple Laravel 5.1 package to validate form inputs on the go",
+    "description": "A simple Laravel 5 package to validate form inputs on the go",
     "type": "beta",
     "authors": [
         {
             "name": "Richard Keep",
-            "email": "r.kipsang@gmail.com"
         }
     ],
     "autoload": {
