@@ -21,8 +21,8 @@
                 var error = $.parseJSON(bool);
 
                 if (error === '') {
-                    $message.html('');
                     $btn.attr('disabled', false);
+                    $message.html('');
                 } else {
                     $btn.attr('disabled', true);
                     $message
