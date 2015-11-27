@@ -1,5 +1,6 @@
 ;(function($, undefined) {
-    function doValidate($input) {
+    function handleValidation() {
+        var $input = $(this);
         var field = $input.attr('id');
         var data = $input.val();
         var payload = { field: field.replace('_', '-'), data: data };
@@ -14,7 +15,7 @@
             beforeSend: function() {
                 $message
                     .css('color', 'green')
-                        .html('Checking...');
+                    .html('Checking...');
             },
             success:function(bool) {
                 var error = $.parseJSON(bool);
@@ -26,22 +27,23 @@
                     $btn.attr('disabled', true);
                     $message
                         .css('color', 'red')
-                            .html(error);
+                        .html(error);
                 }
             }
        });
     };
     
     $(function() {
-        $('input[type=text]').on('keyup', function() {
-            var $this = $(this);
-            var field = $this.attr('id');
-
-            $(this)
+        var $inputs = $('input[type=text]');
+        
+        $inputs.each(function($input) {
+            var field = $input.attr('id');
+            var template = "<small class='" + field + "'></small>";
+            $input
                 .parent()
-                    .append("<small class='" + field + "'></small>");
-
-            doValidate($this);
+                    .append(template);
         });
+                
+        $input.on('keyup', handleValidation);
     });
 })(jQuery);
