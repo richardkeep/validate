@@ -1,44 +1,47 @@
-
-    function doValidate(field){
-
-        var url = '/validate';
-
-        var data = $("#"+field).val();
-
-        var field = field.replace('_','-');
-
-        var data = {"field":field, "data": data };
-
-        var field = field.replace('-','_');
+;(function($, undefined) {
+    function doValidate($input) {
+        var field = $input.attr('id');
+        var data = $input.val();
+        var payload = { field: field.replace('_', '-'), data: data };
+        var $message = $('small.' + field);
+        var $btn = $input.closest('button[type=submit], input[type=submit]'); // Submit button
 
         $.ajax({
-            url:url,
-            data:data,
-            type:'POST',
+            url: '/validate',
+            data: payload,
+            type: 'POST',
             cache: false,
-            beforeSend: function(){
-                $('small.'+field).css('color','green').html('Checking...');
+            beforeSend: function() {
+                $message
+                    .css('color', 'green')
+                        .html('Checking...');
             },
-            success:function(bool){ 
-                
-                $('small.'+field).html('');
-               
+            success:function(bool) {
                 var error = $.parseJSON(bool);
 
-                $('small.'+field).css('color','red').html(error);
-
-                if(error == ''){
-                    $('input[type=submit]').attr('disabled', false);
+                if (error === '') {
+                    $message.html('');
+                    $btn.attr('disabled', false);
                 } else {
-                    $('input[type=submit]').attr('disabled', true);
+                    $btn.attr('disabled', true);
+                    $message
+                        .css('color', 'red')
+                            .html(error);
                 }
-            },
+            }
        });
-          
     };
     
-    $('input[type=text]').attr('onkeyup', function(){
-        var field = $(this).attr('id');
-        $(this).parent().append("<small class='"+field+"'></small>");
-        return "doValidate('"+field+"')";
+    $(function() {
+        $('input[type=text]').on('keyup', function() {
+            var $this = $(this);
+            var field = $this.attr('id');
+
+            $(this)
+                .parent()
+                    .append("<small class='" + field + "'></small>");
+
+            doValidate($this);
+        });
     });
+})(jQuery);
