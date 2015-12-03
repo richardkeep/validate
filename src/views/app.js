@@ -35,15 +35,14 @@
     
     $(function() {
         var $inputs = $('input[type=text]');
-        
-        $inputs.each(function($input) {
+
+        $inputs.each(function(_, input) {
+            var $input = $(input);
             var field = $input.attr('id');
             var template = "<small class='" + field + "'></small>";
-            $input
-                .parent()
-                    .append(template);
+            $input.parent().append(template);
         });
                 
-        $input.on('keyup', handleValidation);
+        $inputs.on('keyup', handleValidation);
     });
 })(jQuery);
