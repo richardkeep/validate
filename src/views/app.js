@@ -34,7 +34,7 @@
     };
     
     $(function() {
-        var $inputs = $('input[type=text]');
+        var $inputs = $('input');
 
         $inputs.each(function(_, input) {
             var $input = $(input);
