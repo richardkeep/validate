@@ -17,7 +17,7 @@
                     .css('color', 'green')
                     .html('Checking...');
             },
-            success:function(bool) {
+            success: function(bool) {
                 var error = $.parseJSON(bool);
 
                 if (error === '') {
