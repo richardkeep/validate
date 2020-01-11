@@ -1,23 +1,22 @@
-<?php namespace RichardKeep\Validate;
+<?php
+
+namespace Richardkeep\Validate;
 
 use Validator;
 use Illuminate\Http\Request;
 
 class ValidationController
 {
-        // Validate a POST request
-        
-        public function validate(Request $request)
-        {
+    public function __invoke(Request $request)
+    {
+        $field = preg_replace('/-/', '_', $request->field);
 
-	        $field = preg_replace('/-/', '_', $request->get('field'));
-	
-        	$data = [
-        		"{$field}" => $request->get('data')
-        	];
-
-        	$v = Validator::make($data, config('richard.rules'));
-        
-        	return json_encode( $v->errors()->first( $field ) );  
-        }
+        return json_encode(
+                Validator::make([
+                    "{$field}" => $request->data
+                ], config('richard.rules'))
+                ->errors()
+                ->first($field)
+            );
+    }
 }

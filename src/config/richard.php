@@ -1,19 +1,17 @@
 <?php
 
 return [
-	/*
+    /*
     |--------------------------------------------------------------------------
     | Validation Rules
     |--------------------------------------------------------------------------
     |
-    | Outline all the validation rules here
+    | Outline all the validation rules here for your resource
     |
     |
     */
 
-	'rules' => [
-		'name' => 'required|max:255',
-		'email' => 'required|email'
-	]
-
+    'rules' => [
+        'name' => 'required|min:3',
+    ]
 ];

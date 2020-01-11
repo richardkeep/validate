@@ -7,11 +7,23 @@
             "name": "Richard Keep"
         }
     ],
+    "require": {
+        "php": "^7.2",
+        "illuminate/validation": "^5.8|^6.0",
+        "illuminate/http": "^5.8|^6.0",
+        "illuminate/support": "^5.8|^6.0"
+    },
     "autoload": {
         "psr-4": {
-            "RichardKeep\\Validate\\": "src/"
+            "Richardkeep\\Validate\\": "src/"
         }
     },
-    "minimum-stability": "dev",
-    "require": {}
+    "extra": {
+        "laravel": {
+            "providers": [
+                 "Richardkeep\\Validate\\RichardkeepServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev"
 }

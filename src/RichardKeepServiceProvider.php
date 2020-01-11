@@ -1,37 +1,35 @@
-<?php namespace RichardKeep\Validate;
+<?php
+
+namespace Richardkeep\Validate;
 
 use Illuminate\Support\ServiceProvider;
-use RichardKeep\Validate\CustomValidations\ValidationExtended;
+use Richardkeep\Validate\CustomValidations\ValidationExtended;
 
-class RichardKeepServiceProvider extends ServiceProvider {
+class RichardkeepServiceProvider extends ServiceProvider
+{
 
-	/**
-	 * Bootstrap the application services.
-	 *
-	 * @return void
-	 */
-	public function boot()
-	{
-		$this->loadViewsFrom(__DIR__.'/views','richard');
+    /**
+     * Bootstrap the application services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        $this->loadViewsFrom(__DIR__.'/resources/views', 'richard');
 
-		$this->app->validator->resolver(function ($translator, $data, $rules, $messages = array(), $customAttributes = array()){
-			return new ValidationExtended($translator, $data, $rules, $messages, $customAttributes);
-		});
+        $this->publishes([
+            __DIR__.'/resources/js/app.js' => public_path("js/richardkeep/app.js"),
+            __DIR__.'/config/richard.php' => base_path("config/richard.php"),
+        ]);
+    }
 
-		$this->publishes([
-			__DIR__.'/views/app.js' => public_path("js/richardkeep/app.js"),
-			__DIR__.'/config/richard.php' => base_path("config/richard.php"),
-		]);
-	}
-
-	/**
-	 * Register the application services.
-	 *
-	 * @return void
-	 */
-	public function register()
-	{
-		include __DIR__.'/routes.php';
-	}
-
+    /**
+     * Register the application services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        include __DIR__.'/routes.php';
+    }
 }

@@ -1,3 +1,3 @@
 <?php
 
-Route::post('validate', 'RichardKeep\Validate\ValidationController@validate');
+Route::post('validate', 'Richardkeep\Validate\ValidationController');
