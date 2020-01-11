@@ -1,36 +1,57 @@
-# Easily Validate Form Inputs
+# Easily Validate Form Inputs in Laravel
 
 ## Installation
-
 First, pull in the package through Composer.
 
-```js
-"require": {
-    "richardkeep/validate": "~1.0"
-}
+```bash
+composer require richardkeep/validate
 ```
 
-And then, if using Laravel 5, include the service provider within `config/app.php`.
+The package will automatically register its service provider.
+
+To publish the config file to config/richard.php run:
+
+php artisan vendor:publish --provider="Richardkeep\Validate\RichardkeepServiceProvider"
+
+This is the default contents of the configuration:
 
 ```php
-'providers' => [
-    'Richardkeep\Validate\RichardkeepServiceProvider'
+return [
+    'rules' => [
+        'password' => 'required|min:3'
+    ]
 ];
 ```
 
-Publish the assets
-
-```js
-php artisan vendor:publish
-```
-
-Place this code below the link of jQuery library
+## Usage
+Place this code in your layout file or anywhere you want to use it.
 
 ```php
-@include('richard::validate');
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+@include('richard::validate')
 ```
 
+for example,
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Update Password</title>
+    </head>
+    <body>
+        <div
+            <label for="password">Password</label>
+            <input type="password" id="password" class="form-control">
+        </div>
+    </body>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" defer></script>
+    @include('richard::validate')
+</html>
+```
+
+## Ignore CSRF-Token Check
 Open `app\Http\Middleware\VerifyCsrfTokenCheck.php` add `validate to the URI that should be excluded from CSRF check
+
 ```php
 /**
      * The URIs that should be excluded from CSRF verification.
@@ -42,22 +63,20 @@ Open `app\Http\Middleware\VerifyCsrfTokenCheck.php` add `validate to the URI tha
     ];
 ```
 
-Open `config\richard.php` and add the validation rules. For example,
+## Customizations
+
+Open `config\richard.php` and add more validation rules. For example,
 
 ```php
 'rules' => [
-    'name' => 'required|min:5',
-    'email' => 'required|email', 
+    'password' => 'required|min:3',
+    'name' => 'required|min:5', 
 ];
 ```
 
 When a user starts typing, for example their email, the data is validated and the error message is displayed below the text box immediately. 
 
-![image1](http://s18.postimg.org/rg6iaabwp/email1.png)
-
-![image2](http://s24.postimg.org/dyfosc1ad/email2.png)
-
-In addition, the submit button is disabled if an error is returned.
+![Capture](https://user-images.githubusercontent.com/3874381/72202629-eae4ca00-3472-11ea-9e40-28e1560720fa.JPG)
 
 Please try it guys. 
 
